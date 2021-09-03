@@ -80,6 +80,11 @@ variable "lambda_invocation_logging_lambdas" {
   default     = ["arn:aws:lambda"] # All lambdas
 }
 
+variable "dynamodb_event_logging_tables" {
+  description = "The list of DynamoDB table ARNs on which to enable event logging."
+  default     = ["arn:aws:dynamodb"] # All DynamoDB tables
+}
+
 variable "tags" {
   description = "Specifies object tags key and value. This applies to all resources created by this module."
   default = {

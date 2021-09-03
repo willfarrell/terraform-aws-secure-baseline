@@ -270,6 +270,16 @@ resource "aws_cloudtrail" "global" {
       values = var.lambda_invocation_logging_lambdas
     }
   }
+  
+  event_selector {
+    read_write_type           = "All"
+    include_management_events = true
+    
+    data_resource {
+      type   = "AWS::DynamoDB::Table"
+      values = var.dynamodb_event_logging_tables
+    }
+  }
 
   insight_selector {
     insight_type = "ApiCallRateInsight"

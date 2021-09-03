@@ -348,6 +348,10 @@ variable "cloudtrail_lambda_invocation_logging_lambdas" {
   default     = ["arn:aws:lambda"] # All lambdas
 }
 
+variable "cloudtrail_dynamodb_event_logging_tables" {
+  description = "The list of DynamoDB table ARNs on which to enable event logging."
+  default     = ["arn:aws:dynamodb"] # All DynamoDB tables
+}
 
 # --------------------------------------------------------------------------------------------------
 # Variables for alarm-baseline module.
