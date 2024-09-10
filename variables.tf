@@ -648,3 +648,13 @@ variable "analyzer_name" {
   type        = string
   default     = "default-analyzer"
 }
+
+# --------------------------------------------------------------------------------------------------
+# Variables for athena-baseline module.
+# --------------------------------------------------------------------------------------------------
+
+variable "athena_baseline_enabled" {
+  description = "Boolean whether athena-baseline is enabled. false by default because imports are required"
+  type        = bool
+  default     = false
+}
