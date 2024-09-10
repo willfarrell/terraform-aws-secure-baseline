@@ -48,6 +48,7 @@ resource "aws_default_vpc" "default" {
     var.tags,
     { Name = "Default VPC" }
   )
+  force_destroy = true
 }
 
 resource "aws_default_subnet" "default" {
@@ -60,6 +61,7 @@ resource "aws_default_subnet" "default" {
     var.tags,
     { Name = "Default Subnet" }
   )
+  force_destroy = true
 }
 
 resource "aws_default_route_table" "default" {
