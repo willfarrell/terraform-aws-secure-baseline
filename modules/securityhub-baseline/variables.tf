@@ -22,6 +22,12 @@ variable "enable_aws_foundational_standard" {
   default     = true
 }
 
+variable "enable_nist_800_53_standard" {
+  description = "Boolean whether NISt 800-53 standard is enabled."
+  type        = bool
+  default     = true
+}
+
 variable "enable_product_arns" {
   description = "List of Security Hub product ARNs, `<REGION>` will be replaced. See https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html for list."
   type        = list(string)

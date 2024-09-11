@@ -609,6 +609,15 @@ variable "securityhub_enabled" {
   default     = true
 }
 
+variable "securityhub_member_accounts" {
+  description = "A list of IDs and emails of AWS accounts which associated as member accounts."
+  type = list(object({
+    account_id = string
+    email      = string
+  }))
+  default = []
+}
+
 variable "securityhub_enable_cis_standard" {
   description = "Boolean whether CIS standard is enabled."
   type        = bool
@@ -623,6 +632,12 @@ variable "securityhub_enable_pci_dss_standard" {
 
 variable "securityhub_enable_aws_foundational_standard" {
   description = "Boolean whether AWS Foundations standard is enabled."
+  type        = bool
+  default     = true
+}
+
+variable "securityhub_enable_nist_800_53_standard" {
+  description = "Boolean whether NISt 800-53 standard is enabled."
   type        = bool
   default     = true
 }

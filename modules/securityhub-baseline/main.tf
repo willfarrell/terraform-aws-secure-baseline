@@ -38,12 +38,13 @@ resource "aws_securityhub_invite_accepter" "invitee" {
 
 # --------------------------------------------------------------------------------------------------
 # Subscribe standards
+# Use `aws securityhub describe-standards` to get future arns
 # --------------------------------------------------------------------------------------------------
 
 resource "aws_securityhub_standards_subscription" "cis" {
   count = var.enable_cis_standard ? 1 : 0
 
-  standards_arn = "arn:aws:securityhub:${data.aws_region.current.name}::standards/cis-aws-foundations-benchmark/v/1.4.0"
+  standards_arn = "arn:aws:securityhub:${data.aws_region.current.name}::standards/cis-aws-foundations-benchmark/v/3.0.0"
 
   depends_on = [aws_securityhub_account.main]
 }
@@ -60,6 +61,14 @@ resource "aws_securityhub_standards_subscription" "pci_dss" {
   count = var.enable_pci_dss_standard ? 1 : 0
 
   standards_arn = "arn:aws:securityhub:${data.aws_region.current.name}::standards/pci-dss/v/3.2.1"
+
+  depends_on = [aws_securityhub_account.main]
+}
+
+resource "aws_securityhub_standards_subscription" "nist_800_53" {
+  count = var.enable_nist_800_53_standard ? 1 : 0
+
+  standards_arn = "arn:aws:securityhub:${data.aws_region.current.name}::standards/nist-800-53/v/5.0.0"
 
   depends_on = [aws_securityhub_account.main]
 }
