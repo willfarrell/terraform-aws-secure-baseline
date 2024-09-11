@@ -6,7 +6,7 @@
 
 locals {
   guardduty_master_account_id = var.master_account_id
-  guardduty_member_accounts   = var.member_accounts
+  guardduty_member_accounts   = length(var.guardduty_member_accounts) != 0 ? var.guardduty_member_accounts : var.member_accounts
 }
 
 module "guardduty_baseline_ap-northeast-1" {

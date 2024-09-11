@@ -548,6 +548,15 @@ variable "guardduty_enabled" {
   default     = true
 }
 
+variable "guardduty_member_accounts" {
+  description = "A list of IDs and emails of AWS accounts which associated as member accounts."
+  type = list(object({
+    account_id = string
+    email      = string
+  }))
+  default = []
+}
+
 variable "guardduty_disable_email_notification" {
   description = "Boolean whether an email notification is sent to the accounts."
   type        = bool
